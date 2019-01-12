@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
 
         } else if (id == R.id.my_products) {
+            startActivity(new Intent(this,MyProducts.class));
 
         } else if (id == R.id.news) {
             startActivity( new Intent(this, NewsActivity.class));

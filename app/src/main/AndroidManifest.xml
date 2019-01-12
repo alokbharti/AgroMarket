@@ -23,11 +23,13 @@
         </activity>
         <activity android:name=".UserDetails" />
         <activity android:name=".VerifyPhone" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppThemeNoActionBar" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".StockPrice" />
-        <activity android:name=".Sell"></activity>
+        <activity android:name=".Sell" />
+        <activity android:name=".MyProducts"></activity>
     </application>
 
 </manifest>
