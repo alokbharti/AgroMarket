@@ -29,7 +29,8 @@
         <activity android:name=".NewsActivity" />
         <activity android:name=".StockPrice" />
         <activity android:name=".Sell" />
-        <activity android:name=".MyProducts"></activity>
+        <activity android:name=".MyProducts" />
+        <activity android:name=".BuyProduct"></activity>
     </application>
 
 </manifest>

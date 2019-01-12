@@ -1,5 +1,6 @@
 package garg.hackfest;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -25,6 +27,7 @@ public class Sell extends AppCompatActivity {
     private EditText mSellerAddress;
     private EditText mSellerCommodity;
     private EditText mSellerProductWeight;
+    private EditText mSellerProductPrice;
     private Button mSubmit;
     private RadioButton mWeight;
     private RadioButton mUnits;
@@ -32,7 +35,7 @@ public class Sell extends AppCompatActivity {
     String mSellerName;
     String mSellerDistrict;
     String mSellerState;
-    Date currentTime;
+    String currentTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,14 @@ public class Sell extends AppCompatActivity {
         mSubmit = (Button)findViewById(R.id.buttonSubmit);
         mWeight = (RadioButton)findViewById(R.id.productWeight);
         mUnits = (RadioButton)findViewById(R.id.productUnit);
+        mSellerProductPrice = (EditText)findViewById(R.id.editTextPrice);
         UserPhoneNumber = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
         Log.d("MobileNUmber",UserPhoneNumber);
-        currentTime = Calendar.getInstance().getTime();
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
+
+        currentTime = dateFormat.format(calendar.getTime());
 
         final DatabaseReference UserData = FirebaseDatabase.getInstance().getReference("UserDetails");
         UserData.orderByChild("userNumber").equalTo(UserPhoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -78,6 +86,7 @@ public class Sell extends AppCompatActivity {
                 String SellerAddress = mSellerAddress.getText().toString();
                 String SellerCommodity = mSellerCommodity.getText().toString();
                 String SellerProductWeight = mSellerProductWeight.getText().toString();
+                String SellerProductPrice = mSellerProductPrice.getText().toString();
                 boolean weight = mWeight.isChecked();
                 boolean unit = mUnits.isChecked();
 
@@ -89,7 +98,7 @@ public class Sell extends AppCompatActivity {
 
                 if (weight){
                     Seller seller = new Seller(mSellerName,SellerAddress,mSellerDistrict,mSellerState,SellerCommodity,SellerProductWeight
-                                        ,"KG",currentTime.toString());
+                            ,"KG",currentTime,"unsold",SellerProductPrice);
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Seller");
                     databaseReference.push().setValue(seller);
@@ -97,7 +106,7 @@ public class Sell extends AppCompatActivity {
                 }
                 else if(unit){
                     Seller seller = new Seller(mSellerName,SellerAddress,mSellerDistrict,mSellerState,SellerCommodity,SellerProductWeight
-                            ,"Unit",currentTime.toString());
+                            ,"Unit",currentTime,"unsold",SellerProductPrice);
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Seller");
                     databaseReference.push().setValue(seller);
@@ -107,7 +116,8 @@ public class Sell extends AppCompatActivity {
                 mSellerAddress.setText("");
                 mSellerCommodity.setText("");
 
-                //TODO create a new Activity MyProduct and start a new intent to this activity
+                //Done: create a new Activity MyProduct and start a new intent to this activity
+                startActivity(new Intent(Sell.this,MyProducts.class));
             }
 
         });

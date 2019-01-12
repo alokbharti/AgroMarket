@@ -3,26 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        
-        <item
-            android:id="@+id/buy"
-            android:title="Buy" />
-        <item
-            android:id="@+id/my_orders"
-            android:title="My Orders" />
-        <item
-            android:id="@+id/sell"
-            android:title="Sell" />
-        <item
-            android:id="@+id/my_products"
-            android:title="My Products" />
+    <item android:title="Buy">
+        <menu>
+            <item
+                android:id="@+id/buy"
+                android:icon="@drawable/buy"
+                android:title="Shop" />
+            <item
+                android:id="@+id/my_orders"
+                android:icon="@drawable/my_orders"
+                android:title="My Orders" />
+        </menu>
+    </item>
+
+    <item android:title="Sell">
+        <menu>
+            <item
+                android:id="@+id/sell"
+                android:icon="@drawable/sell"
+                android:title="Sell Product" />
+            <item
+                android:id="@+id/my_products"
+                android:icon="@drawable/my_products"
+                android:title="My Products" />
+        </menu>
+    </item>
+    <group>
         <item
             android:id="@+id/news"
+            android:icon="@drawable/news"
             android:title="News" />
         <item
             android:id="@+id/stock_price"
+            android:icon="@drawable/stock_price"
             android:title="Stock Price" />
     </group>
-
 </menu>

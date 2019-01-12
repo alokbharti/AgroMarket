@@ -10,7 +10,10 @@ public class Buy {
     private String mQuatity;
     private String mUnit;
 
-    public Buy(String itemName, String date, String location,String price,String quatity,String unit)
+    public Buy() {
+    }
+
+    public Buy(String itemName, String date, String location, String price, String quatity, String unit)
     {
         mItemName = itemName;
         mDate = date;
