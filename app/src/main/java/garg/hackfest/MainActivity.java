@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -19,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        FirebaseApp.initializeApp(this);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -56,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //noinspection SimplifiableIfStatement
         if (id == R.id.about) {
             return true;
+        } else if (id == R.id.sign_out) {
+            FirebaseAuth.getInstance().signOut();
+            finish();
+            startActivity(new Intent(this, PhoneAuth.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -81,6 +89,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(this, NewsActivity.class);
             startActivity(i);
         } else if (id == R.id.stock_price) {
+
+            //Starting StockPrice Activity
+            startActivity(new Intent(MainActivity.this, StockPrice.class));
 
         }
 

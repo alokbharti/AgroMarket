@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "946619266279",
+    "firebase_url": "https://hackfest-172b3.firebaseio.com",
+    "project_id": "hackfest-172b3",
+    "storage_bucket": "hackfest-172b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946619266279:android:bd63bb4b247e4dc0",
+        "android_client_info": {
+          "package_name": "garg.hackfest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946619266279-lio0cdfnhjgs034ai14cci1fbl2pthg0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "garg.hackfest",
+            "certificate_hash": "5b1d9780f2d91eb10bfddd98ff8cc00c26b3ab88"
+          }
+        },
+        {
+          "client_id": "946619266279-qi5soaugdrn9tqqcosq8cd6a4o6e7hp7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "garg.hackfest",
+            "certificate_hash": "dac108e41c60b168346b3df93cd6b02ec3a69207"
+          }
+        },
+        {
+          "client_id": "946619266279-g3mr8a32ufoaj69vq5o0d0m15mmf6ih9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6w-v23h2-68kFFBjGFIT3FZTaQKG7wdg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946619266279-g3mr8a32ufoaj69vq5o0d0m15mmf6ih9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
