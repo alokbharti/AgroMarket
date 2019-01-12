@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/buy"
+            android:title="Buy" />
+        <item
+            android:id="@+id/my_orders"
+            android:title="My Orders" />
+        <item
+            android:id="@+id/sell"
+            android:title="Sell" />
+        <item
+            android:id="@+id/my_products"
+            android:title="My Products" />
+        <item
+            android:id="@+id/news"
+            android:title="News" />
+        <item
+            android:id="@+id/stock_price"
+            android:title="Stock Price" />
+    </group>
+
+</menu>
