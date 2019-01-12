@@ -76,9 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.home) {
-
-        } else if (id == R.id.buy) {
+         if (id == R.id.buy) {
 
         } else if (id == R.id.my_orders) {
 

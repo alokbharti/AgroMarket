@@ -9,7 +9,7 @@ class StockItem {
     private String min_price;
     private String max_price;
 
-    public StockItem(String commodity, String min_price, String max_price) {
+    public StockItem(String state, String district,String market, String commodity,String variety, String min_price, String max_price) {
         this.state = state;
         this.district = district;
         this.market = market;

@@ -133,11 +133,10 @@ public class StockPrice extends AppCompatActivity {
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject object = jsonArray.getJSONObject(i);
-                        if (object.getString("state") == mState && object.getString("district") == mDistrict) {
-                            StockItem item = new StockItem(object.getString("commodity"), object.getString("min_price"), object.getString("max_price"));
-                            mItemList.add(item);
-                            Log.e("StockItem", item.toString());
-                        }
+
+                        StockItem item = new StockItem(object.getString("state"),object.getString("district")
+                                ,object.getString("market"),object.getString("commodity"),object.getString("variety")
+                                ,object.getString("min_price"),object.getString("max_price"));
                         mItemAdapter.notifyDataSetChanged();
                     }
 
