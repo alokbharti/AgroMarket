@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
     }
 
     @Override
@@ -82,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.my_orders) {
 
         } else if (id == R.id.sell) {
+            Intent intent = new Intent(this,Sell.class);
+            //intent.putExtra("mobile",UserPhoneNumber);
+            startActivity(intent);
 
         } else if (id == R.id.my_products) {
 
