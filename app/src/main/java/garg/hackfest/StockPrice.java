@@ -137,6 +137,7 @@ public class StockPrice extends AppCompatActivity {
                         StockItem item = new StockItem(object.getString("state"),object.getString("district")
                                 ,object.getString("market"),object.getString("commodity"),object.getString("variety")
                                 ,object.getString("min_price"),object.getString("max_price"));
+                        mItemList.add(item);
                         mItemAdapter.notifyDataSetChanged();
                     }
 
