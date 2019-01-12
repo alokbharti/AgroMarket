@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".PhoneAuth"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -21,7 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".UserDetails" />
+        <activity android:name=".VerifyPhone" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".StockPrice" />
+        <activity android:name=".Sell"></activity>
     </application>
 
 </manifest>
