@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.my_orders) {
 
         } else if (id == R.id.sell) {
+
             Intent intent = new Intent(this,Sell.class);
             //intent.putExtra("mobile",UserPhoneNumber);
             startActivity(intent);
@@ -90,13 +91,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.my_products) {
 
         } else if (id == R.id.news) {
-            Intent i = new Intent(this, NewsActivity.class);
-            startActivity(i);
+            startActivity( new Intent(this, NewsActivity.class));
         } else if (id == R.id.stock_price) {
-
-            //Starting StockPrice Activity
             startActivity(new Intent(MainActivity.this, StockPrice.class));
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

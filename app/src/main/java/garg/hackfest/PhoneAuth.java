@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class PhoneAuth extends AppCompatActivity {
 
     private EditText mEditText;
-    private String mobile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class PhoneAuth extends AppCompatActivity {
         findViewById(R.id.buttonContinue).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mobile = "+91"+mEditText.getText().toString().trim();
+                final String mobile = "+91"+mEditText.getText().toString().trim();
 
                 if(mobile.isEmpty() || mobile.length() < 10){
                     mEditText.setError("Enter a valid mobile");
@@ -75,7 +75,6 @@ public class PhoneAuth extends AppCompatActivity {
 
         if (FirebaseAuth.getInstance().getCurrentUser()!=null){
             Intent intent = new Intent(PhoneAuth.this,MainActivity.class);
-            intent.putExtra("mobile",mobile);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
