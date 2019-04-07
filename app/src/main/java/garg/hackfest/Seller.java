@@ -11,12 +11,13 @@ public class Seller {
     private String Date;
     private String Status;
     private String Price;
+    private String PhoneNumber;
 
     public Seller() {
     }
 
     public Seller(String mSellerName, String mSellerAddress, String mSellerDistrict, String mSellerState,
-                  String mSellerCommodity, String mSellerWeight, String SIUnit, String date, String Status,String Price) {
+                  String mSellerCommodity, String mSellerWeight, String SIUnit, String date, String Status,String Price,String PhoneNumber) {
 
         this.mSellerName = mSellerName;
         this.mSellerAddress = mSellerAddress;
@@ -28,6 +29,7 @@ public class Seller {
         this.Status=Status;
         Date = date;
         this.Price = Price;
+        this.PhoneNumber=PhoneNumber;
     }
 
     public String getmSellerName() {
@@ -68,6 +70,14 @@ public class Seller {
 
     public String getPrice() {
         return Price;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
     }
 
     public void setPrice(String price) {

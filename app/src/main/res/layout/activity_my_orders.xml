@@ -5,22 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyProducts"
+    tools:context=".MyOrders"
     android:orientation="vertical">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="No Products Found"
-        android:visibility="gone"
+        android:id="@+id/OrdersTextview"
         android:layout_marginTop="20dp"
-        android:id="@+id/visible"/>
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="No Products Found, please order something :( "
+        android:visibility="gone"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/product_RecyclerView">
+        android:layout_height="wrap_content"
+        android:id="@+id/OrdersRecyclerView">
 
     </android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

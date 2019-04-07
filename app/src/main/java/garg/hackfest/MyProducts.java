@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,9 +28,11 @@ public class MyProducts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_products);
-
+        setTitle("My Products");
         productListList = new ArrayList<>();
         mAdapter = new ProductAdapter(this,productListList);
+
+        final String phoneNumber = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Seller");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -39,7 +44,14 @@ public class MyProducts extends AppCompatActivity {
                     ProductList productList = new ProductList(sellerList.getmSellerCommodity(),"₹"+sellerList.getPrice(),sellerList.getDate()
                             ,sellerList.getStatus(),
                             sellerList.getmSellerWeight()+" "+ sellerList.getSIUnit());
-                    productListList.add(productList);
+
+                    if (sellerList.getPhoneNumber().equals(phoneNumber)) {
+                        productListList.add(productList);
+                    }
+                }
+                if(productListList.size()==0){
+                    TextView t = (TextView)findViewById(R.id.visible);
+                    t.setVisibility(View.VISIBLE);
                 }
                 mAdapter.notifyDataSetChanged();
 

@@ -45,6 +45,7 @@ public class StockPrice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_price);
         mRecyclerView = (RecyclerView) findViewById(R.id.RecylerView);
+        setTitle("Commodity Price");
         mRecyclerView.setHasFixedSize(false);
         linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(linearLayoutManager);

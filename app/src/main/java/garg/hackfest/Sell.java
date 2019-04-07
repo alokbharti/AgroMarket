@@ -41,7 +41,7 @@ public class Sell extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
-
+        setTitle("Sell Your Product");
         mSellerAddress = (EditText)findViewById(R.id.editTextAddress);
         mSellerCommodity = (EditText)findViewById(R.id.editTextCommodity);
         mSellerProductWeight = (EditText)findViewById(R.id.editTextWeight);
@@ -98,7 +98,7 @@ public class Sell extends AppCompatActivity {
 
                 if (weight){
                     Seller seller = new Seller(mSellerName,SellerAddress,mSellerDistrict,mSellerState,SellerCommodity,SellerProductWeight
-                            ,"KG",currentTime,"unsold",SellerProductPrice);
+                            ,"KG",currentTime,"UNSOLD",SellerProductPrice,UserPhoneNumber);
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Seller");
                     databaseReference.push().setValue(seller);
@@ -106,7 +106,7 @@ public class Sell extends AppCompatActivity {
                 }
                 else if(unit){
                     Seller seller = new Seller(mSellerName,SellerAddress,mSellerDistrict,mSellerState,SellerCommodity,SellerProductWeight
-                            ,"Unit",currentTime,"unsold",SellerProductPrice);
+                            ,"Unit",currentTime,"unsold",SellerProductPrice,UserPhoneNumber);
 
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Seller");
                     databaseReference.push().setValue(seller);

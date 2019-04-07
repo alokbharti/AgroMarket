@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +41,8 @@ class BuyAdapter extends RecyclerView.Adapter<BuyAdapter.ViewHolder> {
         holder.price.setText("₹"+item.getPrice());
         holder.location.setText(item.getLocation());
         holder.quatity.setText(item.getQuatity() + " " + item.getUnit());
-        holder.date.setText(item.getDate());
+        holder.date.setText(item.getDate());;
+        holder.key.setText(item.getKey());
 
     }
 
@@ -57,13 +59,32 @@ class BuyAdapter extends RecyclerView.Adapter<BuyAdapter.ViewHolder> {
         public TextView location;
         public TextView quatity;
         public TextView date;
-        public ViewHolder(View itemView) {
+        public TextView key;
+        public CardView buyCard;
+
+        public ViewHolder(final View itemView) {
             super(itemView);
             item = (TextView)itemView.findViewById(R.id.item);
             price = (TextView)itemView.findViewById(R.id.price);
             location=(TextView)itemView.findViewById(R.id.location);
             quatity = (TextView)itemView.findViewById(R.id.quatity);
             date = (TextView)itemView.findViewById(R.id.date);
+            key = (TextView) itemView.findViewById(R.id.key);
+            buyCard = (CardView) itemView.findViewById(R.id.buy_card);
+
+            buyCard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),CheckOut.class);
+                    intent.putExtra("name",item.getText().toString());
+                    intent.putExtra("weight",quatity.getText().toString());
+                    intent.putExtra("price",price.getText().toString());
+                    intent.putExtra("key",key.getText().toString());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+
         }
     }
 }

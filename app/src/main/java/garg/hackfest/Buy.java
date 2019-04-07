@@ -9,11 +9,12 @@ public class Buy {
     private String mPrice;
     private String mQuatity;
     private String mUnit;
+    private String Key;
 
     public Buy() {
     }
 
-    public Buy(String itemName, String date, String location, String price, String quatity, String unit)
+    public Buy(String itemName, String date, String location, String price, String quatity, String unit,String Key)
     {
         mItemName = itemName;
         mDate = date;
@@ -21,6 +22,7 @@ public class Buy {
         mPrice = price;
         mQuatity = quatity;
         mUnit = unit;
+        this.Key=Key;
     }
 
     public String getItemName(){ return mItemName;}
@@ -34,6 +36,14 @@ public class Buy {
     public String getQuatity() { return mQuatity;}
 
     public String getUnit(){ return mUnit;}
+
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
+    }
 
     public void setmItemName(String mItemName) {
         this.mItemName = mItemName;

@@ -58,6 +58,7 @@ public class BuyProduct extends AppCompatActivity {
                 },4000);
             }
         });
+
     }
 
     private void getProductList(){
@@ -68,7 +69,11 @@ public class BuyProduct extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                     Seller s = dataSnapshot1.getValue(Seller.class);
                     Log.e("buyer", s.toString());
-                    mBuyList.add(new Buy(s.getmSellerCommodity(), s.getDate(), s.getmSellerDistrict() + ", " + s.getmSellerState(), s.getPrice(), s.getmSellerWeight(), s.getSIUnit()));
+                    String key = dataSnapshot1.getKey();
+
+                    if (s.getStatus().equals("UNSOLD")) {
+                        mBuyList.add(new Buy(s.getmSellerCommodity(), s.getDate(), s.getmSellerDistrict() + ", " + s.getmSellerState(), s.getPrice(), s.getmSellerWeight(), s.getSIUnit(), key));
+                    }
                     Log.e("buyer", String.valueOf(mBuyList.size()));
                 }
 

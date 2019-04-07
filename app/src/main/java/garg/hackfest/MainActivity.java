@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Shop ");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FirebaseApp.initializeApp(this);
@@ -90,8 +91,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                     Seller s = dataSnapshot1.getValue(Seller.class);
                     Log.e("buyer", s.toString());
-                    mBuyList.add(new Buy(s.getmSellerCommodity(), s.getDate(), s.getmSellerDistrict() + ", " + s.getmSellerState(), s.getPrice(), s.getmSellerWeight(), s.getSIUnit()));
-                    Log.e("buyer", String.valueOf(mBuyList.size()));
+                    String key = dataSnapshot1.getKey();
+                    if (s.getStatus().equals("UNSOLD")) {
+                        mBuyList.add(new Buy(s.getmSellerCommodity(), s.getDate(), s.getmSellerDistrict() + ", " + s.getmSellerState(), s.getPrice(), s.getmSellerWeight(), s.getSIUnit(), key));
+                    }Log.e("buyer", String.valueOf(mBuyList.size()));
                 }
 
                 mBuyAdapter.notifyDataSetChanged();
@@ -149,6 +152,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          if (id == R.id.buy) {
             //startActivity(new Intent(this, BuyProduct.class));
         } else if (id == R.id.my_orders) {
+             //starting MyOrders Activity
+             startActivity(new Intent(this,MyOrders.class));
 
         } else if (id == R.id.sell) {
 
